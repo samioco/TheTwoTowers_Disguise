@@ -1,0 +1,83 @@
+#CLASS 0
+$CLASS = "TOOLS|Disguise|Settings"
+
+#VAR DisguiseDesiredAlign {} {} VAR
+#VAR DisguiseDesiredProf {} {} VAR
+#VAR DisguiseDesiredRace {} {} VAR
+
+#VAR Messages_Disguise {} {} VAR
+#ADDI Messages_Disguise "You modify your racial features."
+#ADDI Messages_Disguise "You hide your alignment."
+#ADDI Messages_Disguise "You hide your professional tendencies."
+#ADDI Messages_Disguise "Your visible race is already"
+#ADDI Messages_Disguise "Your visible alignment is already"
+#ADDI Messages_Disguise "Your visible level is already"
+#ADDI Messages_Disguise "Your visible gender is already"
+
+
+//Disguise Align
+#TR DisguiseAlignFail {Your attempt fails.} {Disguisealign} $CLASS
+
+#TR DisguiseAlignSuccess {You hide your alignment.} {
+#CW CYAN;#CAP INFO;#T- DisguiseAlignFail
+#VAR %concat(@MyName,"_PublicAlignment") {%trim(%lower(@DisguiseDesiredAlign))} {} @MyName
+#VAR MyPublicAlign {%trim(%lower(@DisguiseDesiredAlign))} {} VAR
+#IF (@ActionQueue) {ActionNext}
+} $CLASS
+
+#TR DisguiseAlignAlready {Your visible alignment is already %1.} {
+#CAP INFO;#T- DisguiseAlignFail
+#VAR %concat(@MyName,"_PublicAlignment") {%trim(%lower(@DisguiseDesiredAlign))} {} @MyName
+#VAR MyPublicAlign {%trim(%lower(@DisguiseDesiredAlign))} {} VAR
+#IF (@ActionQueue) {ActionNext}
+} $CLASS
+
+
+//Disguise Profession
+#TR DisguiseProfFail {Your attempt fails.} {DisguiseProf} $CLASS
+
+#TR DisguiseProfSuccess {You hide your professional tendencies.} {
+#CW CYAN;#CAP INFO;#T- DisguiseProfFail
+#VAR %concat(@MyName,"_PublicProfession") {%trim(%lower(@DisguiseDesiredProf))} {} @MyName
+#VAR MyPublicProf {%trim(%lower(@DisguiseDesiredProf))} {} VAR
+#IF (@ActionQueue) {ActionNext}
+} $CLASS
+
+#TR DisguiseProfAlready {Your visible profession is already %1.} {
+#CW CYAN;#CAP INFO;#T- DisguiseProfFail
+#VAR %concat(@MyName,"_PublicProfession") {%trim(%lower(@DisguiseDesiredProf))} {} @MyName
+#VAR MyPublicProf {%trim(%lower(@DisguiseDesiredProf))} {} VAR
+#IF (@ActionQueue) {ActionNext}
+} $CLASS
+
+
+//Disguise Race
+#TR DisguiseRaceFail {Your attempt fails.} {DisguiseRace} $CLASS
+
+#TR DisguiseRaceSuccess {You modify your racial features.} {
+#CW cyan;#CAP info;#T- DisguiseRace_Fail
+#VAR %concat(@MyName,"_PublicRace") {%trim(%lower(@DisguiseDesiredRace))} {} @MyName
+#VAR MyPublicRace {%lower(@DisguiseDesiredRace)} {} VAR
+#IF (@ActionQueue) {ActionNext}
+} $CLASS
+
+#TR DisguiseRaceAlready {Your visible race is already %1.} {
+#CW CYAN;#CAP INFO;#T- DisguiseRaceFail
+#VAR %concat(@MyName,"_PublicRace") {%trim(%lower(@DisguiseDesiredRace))} {} @MyName
+#VAR MyPublicRace {%lower(@DisguiseDesiredRace)} {} VAR
+#IF (@ActionQueue) {ActionNext}
+} $CLASS
+
+#TR DisguiseRestore {You quickly restore your true appearance.} {
+#T- DisguiseAlignFail
+#T- DisguiseRaceFail
+#T- DisguiseProfFail
+BotOff Disguise
+} $CLASS
+
+#T- DisguiseAlign_Fail
+#T- DisguiseRace_Fail
+#T- DisguiseProf_Fail
+#CLASS $CLASS 0
+
+#CLASS 0
