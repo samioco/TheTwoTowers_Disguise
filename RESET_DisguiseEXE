@@ -1,0 +1,27 @@
+#CLASS 0
+$CLASS = "TOOLS|Disguise|EXE"
+
+#AL DisguiseAlign {#IF (%0) {#VAR DisguiseDesiredAlign {%trim(%lower(%0))} {} VAR};#T+ DisguiseAlignFail;BotOn Disguise;disguise align @DisguiseDesiredAlign} $CLASS
+#AL DisguiseAngelic {#T+ DisguiseAlignFail;#VAR DisguiseDesiredAlign {"angelic"} {} VAR;DisguiseAlign @DisguiseDesiredAlign} $CLASS
+#AL DisguiseDemonic {#T+ DisguiseAlignFail;#VAR DisguiseDesiredAlign {"demonic"} {} VAR;DisguiseAlign @DisguiseDesiredAlign} $CLASS
+
+
+
+#AL DisguiseProf {#IF (%0) {#VAR DisguiseDesiredProf {%trim(%lower(%0))} {} VAR};#T+ DisguiseProfFail;BotOn Disguise;disguise prof @DisguiseDesiredProf} $CLASS
+#AL DisguiseThief {#VAR DisguiseDesiredProf {"thief"} {} VAR;DisguiseProf @DisguiseDesiredProf} $CLASS
+#AL DisguiseWarrior {#VAR DisguiseDesiredProf {"warrior"} {} VAR;DisguiseProf @DisguiseDesiredProf} $CLASS
+#AL DisguiseCivilian {#VAR DisguiseDesiredProf {"civilian"} {} VAR;DisguiseProf @DisguiseDesiredProf} $CLASS
+#AL DisguiseWizard {#VAR DisguiseDesiredProf {"wizard"} {} VAR;DisguiseProf @DisguiseDesiredProf} $CLASS
+#AL DisguiseMinion {#VAR DisguiseDesiredProf {"minion"} {} VAR;DisguiseProf @DisguiseDesiredProf} $CLASS
+#AL DisguiseRider {#VAR DisguiseDesiredProf {"rider"} {} VAR;DisguiseProf @DisguiseDesiredProf} $CLASS
+#AL DisguiseRanger {#VAR DisguiseDesiredProf {"ranger"} {} VAR;DisguiseProf @DisguiseDesiredProf} $CLASS
+#AL DisguiseNecromancer {#VAR DisguiseDesiredProf {"necromancer"} {} VAR;DisguiseProf @DisguiseDesiredProf}  $CLASS
+#AL DisguiseArcher {#VAR DisguiseDesiredProf {"archer"} {} VAR;DisguiseProf @DisguiseDesiredProf} $CLASS
+#AL DisguiseSniffer {#VAR DisguiseDesiredProf {"sniffer"} {} VAR;DisguiseProf @DisguiseDesiredProf} $CLASS
+
+
+#AL DisguiseRace {#T+ DisguiseRaceFail;BotOn Disguise;#IF (%0) {#VAR DisguiseDesiredRace {%trim(%lower(%0))} {} VAR};disguise race @DisguiseDesiredRace} $CLASS
+#AL DisguiseDunedain {#VAR DisguiseDesiredRace {"dunedain"} {} VAR;DisguiseRace @DisguiseDesiredRace} $CLASS
+#AL DisguiseDunlending {#VAR DisguiseDesiredRace {"dunlending"} {} VAR;DisguiseRace @DisguiseDesiredRace} $CLASS
+
+#CLASS 0
