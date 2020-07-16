@@ -1,5 +1,5 @@
-#CLASS 0
-$CLASS = "TOOLS|Disguise|Settings"
+//RESET_DisguiseSettings#CLASS 0#AL RESET_DisguiseSettings {#CLASS 0
+$CLASS = "Tools|Disguise|Settings"
 
 #VAR DisguiseDesiredAlign {} {} VAR
 #VAR DisguiseDesiredProf {} {} VAR
@@ -80,4 +80,4 @@ BotOff Disguise
 #T- DisguiseProf_Fail
 #CLASS $CLASS 0
 
-#CLASS 0
+#CLASS 0} _Disguise#CLASS 0

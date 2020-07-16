@@ -1,5 +1,5 @@
-#CLASS 0
-$CLASS = "TOOLS|Disguise|EXE"
+//RESET_DisguiseEXE#CLASS 0#AL RESET_DisguiseEXE {#CLASS 0
+$CLASS = "Tools|Disguise|EXE"
 
 #AL DisguiseAlign {#IF (%0) {#VAR DisguiseDesiredAlign {%trim(%lower(%0))} {} VAR};#T+ DisguiseAlignFail;BotOn Disguise;disguise align @DisguiseDesiredAlign} $CLASS
 #AL DisguiseAngelic {#T+ DisguiseAlignFail;#VAR DisguiseDesiredAlign {"angelic"} {} VAR;DisguiseAlign @DisguiseDesiredAlign} $CLASS
@@ -24,4 +24,4 @@ $CLASS = "TOOLS|Disguise|EXE"
 #AL DisguiseDunedain {#VAR DisguiseDesiredRace {"dunedain"} {} VAR;DisguiseRace @DisguiseDesiredRace} $CLASS
 #AL DisguiseDunlending {#VAR DisguiseDesiredRace {"dunlending"} {} VAR;DisguiseRace @DisguiseDesiredRace} $CLASS
 
-#CLASS 0
+#CLASS 0} _Disguise#CLASS 0
